@@ -61,7 +61,11 @@ class DoubleLinkedlist {
 
             while ( true ) {
                 if ( i == i_ ) {
-                    indexer->prev->next = indexer->next;
+                    if ( indexer->next != nullptr ) {
+                        indexer->prev->next = indexer->next;
+                    } else {
+                        indexer->prev->next = nullptr;
+                    }
                     break;
                 } else { 
                     i += 1;
@@ -97,9 +101,8 @@ int main() {
     list.append(5);
 
     // Drop
-    list.drop(2);
+    list.drop(4);
     
-
     // Print list
     list.printList();
 
